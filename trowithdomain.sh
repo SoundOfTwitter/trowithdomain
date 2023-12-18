@@ -27,6 +27,7 @@ sudo systemctl enable cron
 sudo apt install -y libcap2-bin xz-utils
 sudo apt install -y nginx
 sudo rm /etc/nginx/sites-enabled/default
+EOF
 # sudo vim /etc/nginx/sites-available/mydomiantro
 echo "server {" > /etc/nginx/sites-available/mydomiantro
 echo "    listen 127.0.0.1:80 default_server;" > /etc/nginx/sites-available/mydomiantro
@@ -72,7 +73,6 @@ sudo mkdir -p  /var/www/acme-challenge
 sudo chown -R acme:certusers /var/www/acme-challenge
 sudo su -l -s /bin/bash acme
 curl  https://get.acme.sh | sh
-EOF
 exit
 sudo su -l -s /bin/bash acme
 acme.sh --set-default-ca  --server  letsencrypt
