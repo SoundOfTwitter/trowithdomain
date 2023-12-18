@@ -12,9 +12,10 @@ echo -e "Liu2023\nLiu2023" | sudo passwd trojanuser
 sudo usermod -G sudo trojanuser
 
 # 第四条命令
-su -l trojanuser
+# su -l trojanuser
 
 # 第一条命令，创建组 certusers，询问密码时输入 "Liu2023"
+su - trojanuser <<EOF
 echo -e "Liu2023\n" | sudo -S groupadd certusers
 sudo useradd -r -M -G certusers trojan
 sudo useradd -r -m -G certusers acme
@@ -71,6 +72,7 @@ sudo mkdir -p  /var/www/acme-challenge
 sudo chown -R acme:certusers /var/www/acme-challenge
 sudo su -l -s /bin/bash acme
 curl  https://get.acme.sh | sh
+EOF
 exit
 sudo su -l -s /bin/bash acme
 acme.sh --set-default-ca  --server  letsencrypt
