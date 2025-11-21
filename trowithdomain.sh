@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # 输入密码
-read -sp "请输入密码 (passwd): " passwd
+#read -sp "请输入密码 (passwd): " passwd
+read -p "请输入密码 (passwd): " passwd
 echo
 
 # 输入域名
