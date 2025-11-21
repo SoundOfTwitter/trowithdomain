@@ -49,7 +49,8 @@ jq --arg d "$server_domain" '
 
 echo "配置已更新：$CONFIG"
 
-
 systemctl enable trojan
 systemctl start trojan
 
+systemctl stop nginx
+certbot certonly --standalone --deploy-hook "systemctl restart nginx" -d $server_domain --email admin@$server_domain --agree-tos --noninteractive
