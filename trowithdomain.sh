@@ -9,6 +9,8 @@ if [ -z "$passwd" ] || [ -z "$server_domain" ]; then
     echo "错误：密码和域名不能为空！"
     exit 1
 fi
+echo "$server_domain" > /home/domain.txt
+echo "域名已写入 /home/domain.txt"
 
 apt install -y curl jq nginx trojan
 
