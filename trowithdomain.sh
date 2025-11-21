@@ -28,9 +28,9 @@ systemctl start nginx
 #    echo "错误：证书申请失败！"
 #    exit 1
 #}
-systemctl stop nginx
-certbot certonly --standalone -d "$server_domain" --email admin@$server_domain --agree-tos --noninteractive
-systemctl start nginx
+# systemctl stop nginx
+# certbot certonly --standalone -d "$server_domain" --email admin@$server_domain --agree-tos --noninteractive
+# systemctl start nginx
 
 
 # 创建或覆盖续期任务（每天 0点 和 12点 执行两次）
