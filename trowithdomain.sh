@@ -33,7 +33,7 @@ systemctl start nginx
 
 
 # 创建或覆盖续期任务（每天 0点 和 12点 执行两次）
-echo "0 0,12 * * * root certbot renew --quiet --nginx" > /etc/cron.d/certbot-renew
+# echo "0 0,12 * * * root certbot renew --quiet --nginx" > /etc/cron.d/certbot-renew
 
 CONFIG="/etc/trojan/config.json"
 # 修改 password
