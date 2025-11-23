@@ -12,7 +12,7 @@ fi
 echo "$server_domain" > /home/domain.txt
 echo "域名已写入 /home/domain.txt"
 
-apt install -y curl jq nginx trojan
+apt install -y curl jq nginx certbot trojan
 
 systemctl enable nginx
 systemctl start nginx
