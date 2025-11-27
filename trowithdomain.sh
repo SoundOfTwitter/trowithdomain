@@ -23,8 +23,8 @@ jq --arg p "$passwd" '.password = [$p]' "$CONFIG" > /tmp/config.tmp && mv /tmp/c
 
 # 修改 ssl
 jq --arg d "$server_domain" '
-  .ssl.cert = "/home/trojan/fullchain.pem"
-  | .ssl.key = "/home/trojan/privkey.pem"
+  .ssl.cert = "/home/letsencrypt/fullchain.pem"
+  | .ssl.key = "/home/letsencrypt/privkey.pem"
   | .ssl.alpn += ["h2"]
 ' "$CONFIG" > /tmp/config.tmp && mv /tmp/config.tmp "$CONFIG"
 echo "配置已更新：$CONFIG"
