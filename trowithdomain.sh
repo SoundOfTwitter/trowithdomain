@@ -29,13 +29,5 @@ jq --arg d "$server_domain" '
 ' "$CONFIG" > /tmp/config.tmp && mv /tmp/config.tmp "$CONFIG"
 echo "配置已更新：$CONFIG"
 
-# 修改 ssl
-#jq --arg d "$server_domain" '
-  #.ssl.cert = "/etc/letsencrypt/live/\($d)/fullchain.pem"
-  #| .ssl.key = "/etc/letsencrypt/live/\($d)/privkey.pem"
-  #| .ssl.alpn += ["h2"]
-#' "$CONFIG" > /tmp/config.tmp && mv /tmp/config.tmp "$CONFIG"
-#echo "配置已更新：$CONFIG"
-
 systemctl enable trojan
 systemctl start trojan
